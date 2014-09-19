@@ -1,0 +1,13 @@
+<h1>New recipe</h1>
+
+<div class="row">
+  <div class="span8 offset2" align="center">
+    <%= form_for(@recipe) do |f| %>
+      
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.submit "Create new recipe", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

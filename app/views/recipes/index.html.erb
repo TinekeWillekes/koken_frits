@@ -1,4 +1,20 @@
 <h1>Recipes list</h1>
-<% @recipes.each do |recipe| %>
-<%= recipe.title %>
-<% end %>
+<div class="row">
+  <div class="span12" align="right">
+    <%= link_to "New recipe", new_recipe_path,
+                                class: "btn btn-primary" %>
+  </div>
+</div>
+<br />
+<ul class="recipes">
+    <% @recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.title, recipe %>
+      <div align="right">
+        <%= link_to("Edit", edit_recipe_path(:id => recipe.id)) %> | 
+        <%= link_to "Delete", recipe, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      </div>  
+    </li>
+    <% end %>
+</ul>
