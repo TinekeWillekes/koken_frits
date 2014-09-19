@@ -1,1 +1,12 @@
 <h1><%= @recipe.title %></h1>
+<div class="row">
+  <div class="span8 offset2" align="center">
+    <%= image_tag("personen.png", size: "50") %><%= @recipe.number_of_persons %>
+    <%= image_tag("tijd.png", size: "50") %><%= @recipe.cooking_time %>
+    <br />
+    <br />
+    <br />
+    <h2>Directions</h2>
+      <%= @recipe.directions %>
+  </div>
+</div>

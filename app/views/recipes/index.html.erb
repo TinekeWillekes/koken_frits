@@ -6,15 +6,22 @@
   </div>
 </div>
 <br />
-<ul class="recipes">
-    <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.title, recipe %>
-      <div align="right">
-        <%= link_to("Edit", edit_recipe_path(:id => recipe.id)) %> | 
+<table class="table table-bordered table-striped">
+  <tr class="header">
+      <th>Title recipe</th>
+      <th><%= image_tag("personen.png", size: "40") %></th>
+      <th><%= image_tag("tijd.png", size: "40") %></th>
+      <th>Actions</th>
+  </tr>
+  <% @recipes.each do |recipe| %>
+  <tr>
+     <td><%= link_to recipe.title, recipe %></td>
+      <td><%= recipe.number_of_persons %> personen</td>
+      <td><%= recipe.cooking_time %> minuten</td>
+      <td><%= link_to("Edit", edit_recipe_path(:id => recipe.id)) %> | 
         <%= link_to "Delete", recipe, method: :delete,
                                   data: { confirm: "You sure?" } %>
-      </div>  
-    </li>
-    <% end %>
-</ul>
+      </td>
+  </tr> 
+  <% end %>
+</table>

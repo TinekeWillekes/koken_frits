@@ -6,6 +6,15 @@
       
       <%= f.label :title %>
       <%= f.text_field :title %>
+    
+      <%= f.label :number_of_persons %>
+      <%= f.text_field :number_of_persons %>
+      
+      <%= f.label :cooking_time %>
+      <%= f.text_field :cooking_time %>
+      
+      <%= f.label :directions %>
+      <%= f.text_area :directions %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
