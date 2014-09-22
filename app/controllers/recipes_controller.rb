@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   
   def show
     @recipe = current_user.recipes.find(params[:id])
+    @list_of_ingredients = @recipe.quantities.all
   end
   
   def new
@@ -47,8 +48,9 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :directions, :number_of_persons, 
-                                    :cooking_time)
+    params.require(:recipe).permit(:id, :_destroy, :title, :directions, :number_of_persons, :cooking_time, :recipe_image, :tip, :history,
+                                    :quantities_attributes => [:id, :_destroy, :amount, :recipe_id, :ingredient_id,
+                                    :ingredient_attributes => [:id,:_destroy, :name]])
   end
   
 end

@@ -10,11 +10,29 @@
       <%= f.label :number_of_persons %>
       <%= f.text_field :number_of_persons %>
       
-      <%= f.label :cooking_time %>
+      <%= f.label :cooking_time %> in minutes
       <%= f.text_field :cooking_time %>
+      
+      <%= f.label :tip %>
+      <%= f.text_area :tip %>
       
       <%= f.label :directions %>
       <%= f.text_area :directions %>
+      
+      <%= f.label :history %>
+      <%= f.text_area :history %>
+      
+      <%= f.label :recipe_image %>
+      <%= f.file_field :recipe_image %>
+      
+      <fieldset id="recipe-ingredients"> 
+        <ol> 
+          <%= f.fields_for :quantities do |quantity| %> 
+            <%= render 'quantity_fields', f: quantity %> 
+          <% end %> 
+        </ol> 
+        <%= link_to_add_association 'add ingredient', f, :quantities, 'data-association-insertion-node' => "#recipe-ingredients ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|quantity| quantity.build_ingredient; quantity } %> 
+      </fieldset> 
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>

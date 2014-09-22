@@ -1,12 +1,36 @@
 <h1><%= @recipe.title %></h1>
 <div class="row">
-  <div class="span8 offset2" align="center">
-    <%= image_tag("personen.png", size: "50") %><%= @recipe.number_of_persons %>
-    <%= image_tag("tijd.png", size: "50") %><%= @recipe.cooking_time %>
+  <div class="span8">
+    <%= image_tag @recipe.recipe_image.url(:medium) %>
     <br />
     <br />
-    <br />
-    <h2>Directions</h2>
-      <%= @recipe.directions %>
+    <%= image_tag("personen.png", size: "50") %><%= @recipe.number_of_persons %> persons<br />
+    
+    <%= image_tag("tijd.png", size: "50") %><%= @recipe.cooking_time %> minutes <br />
+    
+    <%= image_tag("tip.png", size: "50") %><%= @recipe.tip %>
   </div>
-</div>
+  <div class="span4">
+    <h2>List of ingredients</h2>
+    <% @list_of_ingredients.each do |i| %>
+    <li><%= i.amount %> <%= i.ingredient.name %></li>
+    
+    <% end %>
+  </div>
+    <div class="span12">
+      <div class="layout-show">
+      <h2>Directions</h2>
+        <%= @recipe.directions %>
+      </div>
+    </div>
+    <div class="span10">
+      
+    </div>
+
+    <div class="span12">
+      <div class="layout-show">
+      <h2>History</h2>
+        <%= @recipe.history %>
+      </div>
+    </div>
+ </div>

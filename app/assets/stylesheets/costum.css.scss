@@ -111,6 +111,12 @@ input {
     //border-radius: 25px;
 }
 
+.layout-show {
+    text-align: center;
+    border: 1px solid $grayLight;
+    padding: 5px;
+}
+
 .recipes {
   list-style: none;
   margin: 0;
