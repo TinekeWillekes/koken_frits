@@ -18,4 +18,5 @@ class Recipe < ActiveRecord::Base
   has_attached_file :recipe_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/recipe_images/missing.png"
   validates_attachment_content_type :recipe_image, :content_type => /\Aimage\/.*\Z/
 
+  self.per_page = 5
 end

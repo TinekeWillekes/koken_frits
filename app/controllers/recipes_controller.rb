@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @recipes = current_user.recipes.all
+    @recipes = current_user.recipes.paginate(page: params[:page])
   end
   
   def show
@@ -48,7 +48,8 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:id, :_destroy, :title, :directions, :number_of_persons, :cooking_time, :recipe_image, :tip, :history,
+    params.require(:recipe).permit(:id, :_destroy, :title, :directions, 
+      :number_of_persons, :cooking_time, :recipe_image, :tip, :history,
                                     :quantities_attributes => [:id, :_destroy, :amount, :recipe_id, :ingredient_id,
                                     :ingredient_attributes => [:id,:_destroy, :name]])
   end
