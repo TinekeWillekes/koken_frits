@@ -4,12 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/models/recipe.rb</file>
-            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/assets/stylesheets/costum.css.scss</file>
-            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/views/layouts/_header.html.erb</file>
+            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/models/quantity.rb</file>
+            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/models/category.rb</file>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/controllers/recipes_controller.rb</file>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/views/recipes/index.html.erb</file>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/views/recipes/edit.html.erb</file>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/views/recipes/new.html.erb</file>
+            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/helpers/application_helper.rb</file>
+            <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/models/ingredient.rb</file>
             <file>file:/C:/Users/Tinus/Documents/Projecten/koken_frits/app/views/recipes/show.html.erb</file>
         </group>
     </open-files>

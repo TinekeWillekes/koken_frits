@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
-<header class="navbar navbar-default navbar-fixed-top">
+<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
+      <%= link_to "Koken à la Frits", recipes_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
 

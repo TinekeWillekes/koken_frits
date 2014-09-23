@@ -1,4 +1,7 @@
-<h1><%= @recipe.title %></h1>
+<div class="span12" align="center">
+<p><%= back_to(:recipes) %></p> <h1><%= @recipe.title %></h1>
+</div>
+
 <div class="row">
   <div class="span8">
     <%= image_tag @recipe.recipe_image.url(:medium) %>

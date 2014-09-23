@@ -1,9 +1,13 @@
-<h1>Update recipe</h1>
+<div class="span12" align="center">
+  <p><%= back_to(:recipes) %></p> <h1>Update recipe</h1>
+</div>
 
 <div class="row">
   <div class="span8 offset2" align="center">
     <%= form_for(@recipe) do |f| %>
       
+      <%= collection_select(:recipe, :category_id, Category.all, :id, :name) %>
+  
       <%= f.label :title %>
       <%= f.text_field :title %>
     

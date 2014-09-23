@@ -1,5 +1,7 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
+  belongs_to :category
+  
   has_many :quantities
   has_many :ingredients, 
            :through => :quantities
@@ -19,4 +21,10 @@ class Recipe < ActiveRecord::Base
   validates_attachment_content_type :recipe_image, :content_type => /\Aimage\/.*\Z/
 
   self.per_page = 5
+ 
+  private
+  
+  def self.search(query)
+    where("title like ?", "%#{query}%") 
+  end
 end

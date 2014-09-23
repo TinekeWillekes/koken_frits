@@ -1,10 +1,18 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
+  helper_method :sort_column, :sort_direction
   
   def index
-    @recipes = current_user.recipes.paginate(page: params[:page])
+    if params[:search]
+      @recipes = current_user.recipes.search(params[:search])
+                                   .paginate(page: params[:page])
+                                   .order(sort_column + " " + sort_direction)
+    else
+      @recipes = current_user.recipes.paginate(page: params[:page])
+                                   .order(sort_column + " " + sort_direction)
+    end
   end
-  
+
   def show
     @recipe = current_user.recipes.find(params[:id])
     @list_of_ingredients = @recipe.quantities.all
@@ -49,9 +57,17 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:id, :_destroy, :title, :directions, 
-      :number_of_persons, :cooking_time, :recipe_image, :tip, :history,
+      :number_of_persons, :cooking_time, :recipe_image, :tip, :history, :category_id,
                                     :quantities_attributes => [:id, :_destroy, :amount, :recipe_id, :ingredient_id,
-                                    :ingredient_attributes => [:id,:_destroy, :name]])
+                                    :ingredient_attributes => [:id, :_destroy, :name]])
+  end
+  
+  def sort_column
+    Recipe.column_names.include?(params[:sort]) ? params[:sort] : "title"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   
 end
