@@ -21,7 +21,7 @@
     <% @recipes.each do |recipe| %>
     <tr>
       <td><%= link_to recipe.title, recipe %></td>
-      <td><%= recipe.category.name %></td>
+      <td><%= recipe.category.name if recipe.category.name? %>
       <td><%= recipe.number_of_persons %> personen</td>
       <td><%= recipe.cooking_time %> minuten</td>
       <td><%= link_to("Edit", edit_recipe_path(:id => recipe.id), class: "btn btn-primary") %>
